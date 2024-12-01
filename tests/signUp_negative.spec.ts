@@ -44,7 +44,7 @@ test.describe('Sign-Up Page Negative Tests', () => {
     await signUpPage.submitFormBtn();
 
     // Check that the error is displayed
-    const passwordError = await textErrorsClasses.checkpasswordTextError(); // Метод из POM для получения локатора ошибки
+    const passwordError = await textErrorsClasses.checkpasswordTextError(); 
     await expect(passwordError).toHaveText(passwordDoesNotMatch);
     await expect(passwordError).toBeVisible();
   });
