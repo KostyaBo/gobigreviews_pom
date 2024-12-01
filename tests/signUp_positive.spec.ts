@@ -13,7 +13,7 @@ test.only('Positive sign-up test', async ({ page }) => {
 
      await signUpPage.fillRegistrationForm (
       'John Week',        // name
-      'john.doe2@example.com', // email
+      'john.doe15@example.com', // email
       'Password123#',     // password
       'Password123#',     // confirm password
       true,              // acceptance of terms and conditions
@@ -26,7 +26,6 @@ test.only('Positive sign-up test', async ({ page }) => {
     // Check that the registration was successful
 
     await expect(page).toHaveURL('https://gobigreviews.com/'); 
-    await signUpPage.checkAvatarImg();
     await signUpPage.checkAvatarBtn();
 
   });

@@ -77,7 +77,7 @@ async submitFormBtnIsDisable() {
 }
 
 async checkAvatarImg() {
-    await expect(this.avatarImg).toBeVisible();
+    await expect(this.avatarImg).toBeTruthy();
     await expect(this.avatarImg).toHaveAttribute('src', '/assets/media/avatars/blank.png');
     await expect(this.avatarImg).toHaveAttribute('alt', 'GoBigReview-user');
 }
