@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 import { SignUpClasses } from './pages/SignUpClasses';
 import { SignUpTestData } from './pages/SignUpTestData';
 
-test.only('Positive sign-up test', async ({ page }) => {
+test('Positive sign-up test', async ({ page }) => {
     // Create a SignUpPositive object
     const signUpPage = new SignUpClasses(page);
   
@@ -13,7 +13,7 @@ test.only('Positive sign-up test', async ({ page }) => {
 
      await signUpPage.fillRegistrationForm (
       'John Week',        // name
-      'john.doe15@example.com', // email
+      'john.doe19@example.com', // email
       'Password123#',     // password
       'Password123#',     // confirm password
       true,              // acceptance of terms and conditions

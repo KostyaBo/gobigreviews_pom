@@ -14,10 +14,10 @@ test.describe('Sign-Up Page Negative Tests', () => {
     await page.goto('https://gobigreviews.com/register'); 
   });
 
-  test.only('Should show error for invalid email format', async () => {
+  test('Should show error for invalid email format', async () => {
 
     await signUpPage.fillRegistrationForm(
-      'John Doe',
+      'John Doooe',
       'invalid-email',
       'Password123%',
       'Password123%',
