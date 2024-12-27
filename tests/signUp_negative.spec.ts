@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import { SignUpClasses } from './pages/SignUpClasses';
 import { SignUpTestData } from './pages/SignUpTestData';
 import { TextErrorsClasses } from './pages/TextErrorsClasses';
+import { faker } from '@faker-js/faker';
 
 test.describe('Sign-Up Page Negative Tests', () => {
   let signUpPage: SignUpClasses;
@@ -16,9 +17,11 @@ test.describe('Sign-Up Page Negative Tests', () => {
 
   test('Should show error for invalid email format', async () => {
 
+    const invalidEmail = faker.lorem.word()
+
     await signUpPage.fillRegistrationForm(
       'John Doooe',
-      'invalid-email',
+      invalidEmail,
       'Password123%',
       'Password123%',
       true,
@@ -31,15 +34,19 @@ test.describe('Sign-Up Page Negative Tests', () => {
 
   test('Should show error for mismatched passwords', async () => {
     // Filling out the form with mismatched passwords
+    const password = faker.internet.password()
     const {passwordDoesNotMatch} = SignUpTestData.errorMsng;
     await signUpPage.fillRegistrationForm(
       'John Doe',
       'john.doe@example.com',
-      'password123',
-      'password456', 
+      password,
+      `${password}Mismatch`,
       true,
       false
     );
+
+    console.log('Password: ', password);
+    console.log('Mismatched Password: ', `${password}Mismatch`);
 
     await signUpPage.submitFormBtn();
 
